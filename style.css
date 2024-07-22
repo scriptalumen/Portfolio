@@ -1,0 +1,475 @@
+/*--------------------------------------------------------------
+# The overall style of the site
+--------------------------------------------------------------*/
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    background: linear-gradient(135deg, #654ea3, #eaafc8); /* Gradient background */
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0;
+    padding: 0;
+}
+  
+a {
+    text-decoration: none;
+    color: #654ea3;
+}
+  
+a:hover {
+    color: #654ea3;
+    text-decoration: none;
+}
+  
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+.text-white {
+    color: white;
+}
+
+section {
+    padding: 40px 20px;
+}
+    
+.section-bg {
+    background-color: #ffffff;
+}
+     
+
+/*--------------------------------------------------------------
+# Header Section
+--------------------------------------------------------------*/
+#header {
+    background: rgba(255, 255, 255, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    transition: all 0.5s;
+    z-index: 997;
+    height: 70px;
+    padding: 10px; 
+}
+  
+ 
+  
+#header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    z-index: -1; /* Ensure the blur effect is behind the content */
+}
+  
+#header.header-scrolled {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+  
+#header .logo {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-right: auto; 
+}
+    
+  
+#header .logo a {
+    color: #654ea3;
+}
+  
+#header .logo img {
+    max-height: 40px;
+}
+  
+.scrolled-offset {
+    margin-top: 70px;
+}
+  
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbar {
+    padding: 0;
+    
+}
+  
+
+  
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+  
+.navbar li {
+    position: relative;
+}
+  
+.navbar a, .navbar a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-size: 15px;
+    color: #222222;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+  
+.navbar a i, .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+}
+  
+.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+    color: #654ea3;
+}
+  
+.navbar .getstarted {
+    color: #654ea3;
+    padding: 8px 25px;
+    margin-left: 30px;
+    border-radius: 4px;
+    border: 2px solid #654ea3;
+    transition: 0.3s;
+    font-size: 14px;
+}
+  
+.navbar .getstarted:hover {
+    background: #654ea3;
+    color: #fff;
+}
+  
+.navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 14px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+}
+  
+.navbar .dropdown ul li {
+    min-width: 200px;
+}
+  
+.navbar .dropdown ul a {
+    padding: 10px 20px;
+    text-transform: none;
+}
+  
+.navbar .dropdown ul a i {
+    font-size: 12px;
+}
+  
+.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
+    color: #654ea3;
+}
+  
+.navbar .dropdown:hover > ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+}
+  
+.navbar .dropdown .dropdown ul {
+    top: 0;
+    left: calc(100% - 30px);
+    visibility: hidden;
+}
+  
+.navbar .dropdown .dropdown:hover > ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+    visibility: visible;
+}
+  
+@media (max-width: 1366px) {
+    .navbar .dropdown .dropdown ul {
+      left: -90%;
+    }
+    .navbar .dropdown .dropdown:hover > ul {
+      left: -100%;
+    }
+}
+  
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+    color: #654ea3;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+  
+.mobile-nav-toggle.bi-x {
+    color: #fff;
+}
+  
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+      display: block;
+    }
+    .navbar ul {
+      display: none;
+    }
+}
+  
+.navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #654ea3;
+    transition: 0.3s;
+    z-index: 999;
+    
+}
+  
+.navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+  
+.navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+  
+.navbar-mobile a {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #222222;
+}
+  
+.navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
+    color: #654ea3;
+}
+  
+.navbar-mobile .getstarted {
+    margin: 15px;
+}
+  
+.navbar-mobile .dropdown ul {
+    position: static;
+    display: none;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+  
+.navbar-mobile .dropdown ul li {
+    min-width: 200px;
+}
+  
+.navbar-mobile .dropdown ul a {
+    padding: 10px 20px;
+}
+  
+.navbar-mobile .dropdown ul a i {
+    font-size: 12px;
+}
+  
+.navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
+    color: #654ea3;
+}
+  
+.navbar-mobile .dropdown > .dropdown-active {
+    display: block;
+}
+  
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+
+
+.hero-card {
+    border-radius: 15px;
+}
+
+/*--------------------------------------------------------------
+# Recommendations Section
+--------------------------------------------------------------*/
+
+.recommendations-card{
+    border-radius: 10px;
+}
+  
+  
+.container {
+    color: #000;
+}
+  
+.container p{
+    color: #373535;
+}
+  
+  
+/*--------------------------------------------------------------
+# About Me Section
+--------------------------------------------------------------*/
+  
+.about-section {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:first baseline;
+    text-align:left;
+}
+.about-title {
+    margin-top: 20px;
+}
+.about-description {
+    margin-bottom: 20px;
+}
+  
+  
+  
+  
+/*--------------------------------------------------------------
+#Leave-Recommendations 
+--------------------------------------------------------------*/
+  
+  
+.leave-recommendation .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+  
+.leave-recommendation .form-group input,
+.leave-recommendation .form-group textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+  
+.leave-recommendation .form-group button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+
+
+/*--------------------------------------------------------------
+# Skills Section
+--------------------------------------------------------------*/
+.skills {
+    padding: 20px 0;
+}
+
+.skills .icon-box {
+    padding: 20px;
+}
+
+.skills .icon-box-bg {
+    background-image: linear-gradient(0deg, #222222 0%, #2f2f2f 50%, #222222 100%);
+}
+
+.skills .icon {
+    margin-bottom: 15px;
+}
+
+.skills .icon i {
+    color: #654ea3;
+    font-size: 42px;
+}
+
+.skills .title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.skills .title a {
+    color: #222222;
+    transition: 0.3s;
+}
+
+.skills .icon-box:hover .title a {
+    color: #654ea3;
+}
+
+.skills .description {
+    line-height: 24px;
+    font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #654ea3;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: none; /* Initially hidden */
+}
+  
+.back-to-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+}
+  
+.back-to-top:hover {
+    background: #826dbb;
+    color: #fff;
+}
+  
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+ 
